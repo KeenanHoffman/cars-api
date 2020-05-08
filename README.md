@@ -22,4 +22,4 @@ To generate the GRPC Code:
 
 5. Run `protoc` generation from the root of this project:
 
-        ```protoc --proto_path=./proto --proto_path=./third_party --go_out=plugins=grpc:./proto car-service.proto```
+        protoc --proto_path=./proto --proto_path=./third_party --go_out=plugins=grpc:./proto car-service.proto

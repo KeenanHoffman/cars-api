@@ -100,16 +100,19 @@ func (x *CarRequest) GetVin() string {
 	return ""
 }
 
-type StatusResponse struct {
+type Car struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Status int32 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
+	Id    int64  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Make  string `protobuf:"bytes,2,opt,name=make,proto3" json:"make,omitempty"`
+	Model string `protobuf:"bytes,3,opt,name=model,proto3" json:"model,omitempty"`
+	Vin   string `protobuf:"bytes,4,opt,name=vin,proto3" json:"vin,omitempty"`
 }
 
-func (x *StatusResponse) Reset() {
-	*x = StatusResponse{}
+func (x *Car) Reset() {
+	*x = Car{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_car_service_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -117,13 +120,13 @@ func (x *StatusResponse) Reset() {
 	}
 }
 
-func (x *StatusResponse) String() string {
+func (x *Car) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*StatusResponse) ProtoMessage() {}
+func (*Car) ProtoMessage() {}
 
-func (x *StatusResponse) ProtoReflect() protoreflect.Message {
+func (x *Car) ProtoReflect() protoreflect.Message {
 	mi := &file_car_service_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -135,12 +138,190 @@ func (x *StatusResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use StatusResponse.ProtoReflect.Descriptor instead.
-func (*StatusResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use Car.ProtoReflect.Descriptor instead.
+func (*Car) Descriptor() ([]byte, []int) {
 	return file_car_service_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *StatusResponse) GetStatus() int32 {
+func (x *Car) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Car) GetMake() string {
+	if x != nil {
+		return x.Make
+	}
+	return ""
+}
+
+func (x *Car) GetModel() string {
+	if x != nil {
+		return x.Model
+	}
+	return ""
+}
+
+func (x *Car) GetVin() string {
+	if x != nil {
+		return x.Vin
+	}
+	return ""
+}
+
+type CarResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Status int32 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
+	Car    *Car  `protobuf:"bytes,2,opt,name=car,proto3" json:"car,omitempty"`
+}
+
+func (x *CarResponse) Reset() {
+	*x = CarResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_car_service_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CarResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CarResponse) ProtoMessage() {}
+
+func (x *CarResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_car_service_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CarResponse.ProtoReflect.Descriptor instead.
+func (*CarResponse) Descriptor() ([]byte, []int) {
+	return file_car_service_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CarResponse) GetStatus() int32 {
+	if x != nil {
+		return x.Status
+	}
+	return 0
+}
+
+func (x *CarResponse) GetCar() *Car {
+	if x != nil {
+		return x.Car
+	}
+	return nil
+}
+
+type CarsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Status int32  `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
+	Cars   []*Car `protobuf:"bytes,2,rep,name=cars,proto3" json:"cars,omitempty"`
+}
+
+func (x *CarsResponse) Reset() {
+	*x = CarsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_car_service_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CarsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CarsResponse) ProtoMessage() {}
+
+func (x *CarsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_car_service_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CarsResponse.ProtoReflect.Descriptor instead.
+func (*CarsResponse) Descriptor() ([]byte, []int) {
+	return file_car_service_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CarsResponse) GetStatus() int32 {
+	if x != nil {
+		return x.Status
+	}
+	return 0
+}
+
+func (x *CarsResponse) GetCars() []*Car {
+	if x != nil {
+		return x.Cars
+	}
+	return nil
+}
+
+type SimpleResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Status int32 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
+}
+
+func (x *SimpleResponse) Reset() {
+	*x = SimpleResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_car_service_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SimpleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SimpleResponse) ProtoMessage() {}
+
+func (x *SimpleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_car_service_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SimpleResponse.ProtoReflect.Descriptor instead.
+func (*SimpleResponse) Descriptor() ([]byte, []int) {
+	return file_car_service_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *SimpleResponse) GetStatus() int32 {
 	if x != nil {
 		return x.Status
 	}
@@ -157,28 +338,45 @@ var file_car_service_proto_rawDesc = []byte{
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6d, 0x61, 0x6b, 0x65, 0x12, 0x14, 0x0a, 0x05,
 	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x6d, 0x6f, 0x64,
 	0x65, 0x6c, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x69, 0x6e, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x03, 0x76, 0x69, 0x6e, 0x22, 0x28, 0x0a, 0x0e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65,
+	0x03, 0x76, 0x69, 0x6e, 0x22, 0x51, 0x0a, 0x03, 0x43, 0x61, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6d,
+	0x61, 0x6b, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6d, 0x61, 0x6b, 0x65, 0x12,
+	0x14, 0x0a, 0x05, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
+	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x69, 0x6e, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x03, 0x76, 0x69, 0x6e, 0x22, 0x43, 0x0a, 0x0b, 0x43, 0x61, 0x72, 0x52, 0x65,
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0x94,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x1c,
+	0x0a, 0x03, 0x63, 0x61, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x03, 0x63, 0x61, 0x72, 0x22, 0x46, 0x0a, 0x0c,
+	0x43, 0x61, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06,
+	0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x73, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x12, 0x1e, 0x0a, 0x04, 0x63, 0x61, 0x72, 0x73, 0x18, 0x02, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x04,
+	0x63, 0x61, 0x72, 0x73, 0x22, 0x28, 0x0a, 0x0e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0xcb,
 	0x02, 0x0a, 0x0d, 0x41, 0x64, 0x64, 0x43, 0x61, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
 	0x12, 0x32, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f,
 	0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x12,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x12,
 	0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75,
-	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x06, 0x47, 0x65, 0x74,
-	0x41, 0x6c, 0x6c, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53,
-	0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a,
-	0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
-	0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x32, 0x0a, 0x06, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x11, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x3b, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x73, 0x74, 0x1a, 0x12, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x06, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c,
+	0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x35, 0x0a, 0x09, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x50, 0x75, 0x74, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61,
+	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x37, 0x0a, 0x0b, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x74, 0x63, 0x68, 0x12, 0x11,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x06, 0x44, 0x65, 0x6c, 0x65,
+	0x74, 0x65, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x69,
+	0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x09, 0x5a, 0x07,
+	0x2e, 0x3b, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -193,27 +391,34 @@ func file_car_service_proto_rawDescGZIP() []byte {
 	return file_car_service_proto_rawDescData
 }
 
-var file_car_service_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_car_service_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_car_service_proto_goTypes = []interface{}{
 	(*CarRequest)(nil),     // 0: proto.CarRequest
-	(*StatusResponse)(nil), // 1: proto.StatusResponse
+	(*Car)(nil),            // 1: proto.Car
+	(*CarResponse)(nil),    // 2: proto.CarResponse
+	(*CarsResponse)(nil),   // 3: proto.CarsResponse
+	(*SimpleResponse)(nil), // 4: proto.SimpleResponse
 }
 var file_car_service_proto_depIdxs = []int32{
-	0, // 0: proto.AddCarService.Create:input_type -> proto.CarRequest
-	0, // 1: proto.AddCarService.GetById:input_type -> proto.CarRequest
-	0, // 2: proto.AddCarService.GetAll:input_type -> proto.CarRequest
-	0, // 3: proto.AddCarService.Update:input_type -> proto.CarRequest
-	0, // 4: proto.AddCarService.Delete:input_type -> proto.CarRequest
-	1, // 5: proto.AddCarService.Create:output_type -> proto.StatusResponse
-	1, // 6: proto.AddCarService.GetById:output_type -> proto.StatusResponse
-	1, // 7: proto.AddCarService.GetAll:output_type -> proto.StatusResponse
-	1, // 8: proto.AddCarService.Update:output_type -> proto.StatusResponse
-	1, // 9: proto.AddCarService.Delete:output_type -> proto.StatusResponse
-	5, // [5:10] is the sub-list for method output_type
-	0, // [0:5] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: proto.CarResponse.car:type_name -> proto.Car
+	1, // 1: proto.CarsResponse.cars:type_name -> proto.Car
+	0, // 2: proto.AddCarService.Create:input_type -> proto.CarRequest
+	0, // 3: proto.AddCarService.GetById:input_type -> proto.CarRequest
+	0, // 4: proto.AddCarService.GetAll:input_type -> proto.CarRequest
+	0, // 5: proto.AddCarService.UpdatePut:input_type -> proto.CarRequest
+	0, // 6: proto.AddCarService.UpdatePatch:input_type -> proto.CarRequest
+	0, // 7: proto.AddCarService.Delete:input_type -> proto.CarRequest
+	4, // 8: proto.AddCarService.Create:output_type -> proto.SimpleResponse
+	2, // 9: proto.AddCarService.GetById:output_type -> proto.CarResponse
+	3, // 10: proto.AddCarService.GetAll:output_type -> proto.CarsResponse
+	4, // 11: proto.AddCarService.UpdatePut:output_type -> proto.SimpleResponse
+	4, // 12: proto.AddCarService.UpdatePatch:output_type -> proto.SimpleResponse
+	4, // 13: proto.AddCarService.Delete:output_type -> proto.SimpleResponse
+	8, // [8:14] is the sub-list for method output_type
+	2, // [2:8] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_car_service_proto_init() }
@@ -235,7 +440,43 @@ func file_car_service_proto_init() {
 			}
 		}
 		file_car_service_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StatusResponse); i {
+			switch v := v.(*Car); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_car_service_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CarResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_car_service_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CarsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_car_service_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SimpleResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -253,7 +494,7 @@ func file_car_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_car_service_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -279,11 +520,12 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type AddCarServiceClient interface {
-	Create(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error)
-	GetById(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error)
-	GetAll(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error)
-	Update(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error)
-	Delete(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error)
+	Create(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
+	GetById(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*CarResponse, error)
+	GetAll(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*CarsResponse, error)
+	UpdatePut(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
+	UpdatePatch(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
+	Delete(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
 }
 
 type addCarServiceClient struct {
@@ -294,8 +536,8 @@ func NewAddCarServiceClient(cc grpc.ClientConnInterface) AddCarServiceClient {
 	return &addCarServiceClient{cc}
 }
 
-func (c *addCarServiceClient) Create(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
-	out := new(StatusResponse)
+func (c *addCarServiceClient) Create(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
+	out := new(SimpleResponse)
 	err := c.cc.Invoke(ctx, "/proto.AddCarService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -303,8 +545,8 @@ func (c *addCarServiceClient) Create(ctx context.Context, in *CarRequest, opts .
 	return out, nil
 }
 
-func (c *addCarServiceClient) GetById(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
-	out := new(StatusResponse)
+func (c *addCarServiceClient) GetById(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*CarResponse, error) {
+	out := new(CarResponse)
 	err := c.cc.Invoke(ctx, "/proto.AddCarService/GetById", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -312,8 +554,8 @@ func (c *addCarServiceClient) GetById(ctx context.Context, in *CarRequest, opts 
 	return out, nil
 }
 
-func (c *addCarServiceClient) GetAll(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
-	out := new(StatusResponse)
+func (c *addCarServiceClient) GetAll(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*CarsResponse, error) {
+	out := new(CarsResponse)
 	err := c.cc.Invoke(ctx, "/proto.AddCarService/GetAll", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -321,17 +563,26 @@ func (c *addCarServiceClient) GetAll(ctx context.Context, in *CarRequest, opts .
 	return out, nil
 }
 
-func (c *addCarServiceClient) Update(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
-	out := new(StatusResponse)
-	err := c.cc.Invoke(ctx, "/proto.AddCarService/Update", in, out, opts...)
+func (c *addCarServiceClient) UpdatePut(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
+	out := new(SimpleResponse)
+	err := c.cc.Invoke(ctx, "/proto.AddCarService/UpdatePut", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *addCarServiceClient) Delete(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
-	out := new(StatusResponse)
+func (c *addCarServiceClient) UpdatePatch(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
+	out := new(SimpleResponse)
+	err := c.cc.Invoke(ctx, "/proto.AddCarService/UpdatePatch", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addCarServiceClient) Delete(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
+	out := new(SimpleResponse)
 	err := c.cc.Invoke(ctx, "/proto.AddCarService/Delete", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -341,30 +592,34 @@ func (c *addCarServiceClient) Delete(ctx context.Context, in *CarRequest, opts .
 
 // AddCarServiceServer is the server API for AddCarService service.
 type AddCarServiceServer interface {
-	Create(context.Context, *CarRequest) (*StatusResponse, error)
-	GetById(context.Context, *CarRequest) (*StatusResponse, error)
-	GetAll(context.Context, *CarRequest) (*StatusResponse, error)
-	Update(context.Context, *CarRequest) (*StatusResponse, error)
-	Delete(context.Context, *CarRequest) (*StatusResponse, error)
+	Create(context.Context, *CarRequest) (*SimpleResponse, error)
+	GetById(context.Context, *CarRequest) (*CarResponse, error)
+	GetAll(context.Context, *CarRequest) (*CarsResponse, error)
+	UpdatePut(context.Context, *CarRequest) (*SimpleResponse, error)
+	UpdatePatch(context.Context, *CarRequest) (*SimpleResponse, error)
+	Delete(context.Context, *CarRequest) (*SimpleResponse, error)
 }
 
 // UnimplementedAddCarServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedAddCarServiceServer struct {
 }
 
-func (*UnimplementedAddCarServiceServer) Create(context.Context, *CarRequest) (*StatusResponse, error) {
+func (*UnimplementedAddCarServiceServer) Create(context.Context, *CarRequest) (*SimpleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedAddCarServiceServer) GetById(context.Context, *CarRequest) (*StatusResponse, error) {
+func (*UnimplementedAddCarServiceServer) GetById(context.Context, *CarRequest) (*CarResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetById not implemented")
 }
-func (*UnimplementedAddCarServiceServer) GetAll(context.Context, *CarRequest) (*StatusResponse, error) {
+func (*UnimplementedAddCarServiceServer) GetAll(context.Context, *CarRequest) (*CarsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
 }
-func (*UnimplementedAddCarServiceServer) Update(context.Context, *CarRequest) (*StatusResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+func (*UnimplementedAddCarServiceServer) UpdatePut(context.Context, *CarRequest) (*SimpleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePut not implemented")
 }
-func (*UnimplementedAddCarServiceServer) Delete(context.Context, *CarRequest) (*StatusResponse, error) {
+func (*UnimplementedAddCarServiceServer) UpdatePatch(context.Context, *CarRequest) (*SimpleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePatch not implemented")
+}
+func (*UnimplementedAddCarServiceServer) Delete(context.Context, *CarRequest) (*SimpleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 
@@ -426,20 +681,38 @@ func _AddCarService_GetAll_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AddCarService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AddCarService_UpdatePut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CarRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddCarServiceServer).Update(ctx, in)
+		return srv.(AddCarServiceServer).UpdatePut(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.AddCarService/Update",
+		FullMethod: "/proto.AddCarService/UpdatePut",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddCarServiceServer).Update(ctx, req.(*CarRequest))
+		return srv.(AddCarServiceServer).UpdatePut(ctx, req.(*CarRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AddCarService_UpdatePatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CarRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddCarServiceServer).UpdatePatch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/proto.AddCarService/UpdatePatch",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddCarServiceServer).UpdatePatch(ctx, req.(*CarRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -479,8 +752,12 @@ var _AddCarService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _AddCarService_GetAll_Handler,
 		},
 		{
-			MethodName: "Update",
-			Handler:    _AddCarService_Update_Handler,
+			MethodName: "UpdatePut",
+			Handler:    _AddCarService_UpdatePut_Handler,
+		},
+		{
+			MethodName: "UpdatePatch",
+			Handler:    _AddCarService_UpdatePatch_Handler,
 		},
 		{
 			MethodName: "Delete",

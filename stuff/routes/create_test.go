@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"github.com/gin-gonic/gin"
 	"github.com/keenanhoffman/cars-api/routes"
-	"github.com/keenanhoffman/cars-api/structs"
+	"github.com/keenanhoffman/cars-api/stuff/structs"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"net/http"

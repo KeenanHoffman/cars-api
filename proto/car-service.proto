@@ -4,21 +4,39 @@ package proto;
 option go_package = ".;proto";
 
 message CarRequest {
-  int64  id    = 1;
+	int64  id    = 1;
 	string make  = 2;
 	string model = 3;
 	string vin   = 4;
 }
 
-message StatusResponse {
+message Car {
+	int64  id    = 1;
+	string make  = 2;
+	string model = 3;
+	string vin   = 4;
+}
+
+message CarResponse {
+	int32 status = 1;
+	Car   car    = 2;
+}
+
+message CarsResponse {
+	int32    status   = 1;
+	repeated Car cars = 2;
+}
+
+message SimpleResponse {
 	int32 status = 1;
 }
 
 service AddCarService {
-	rpc Create(CarRequest)  returns (StatusResponse);
-	rpc GetById(CarRequest) returns (StatusResponse);
-	rpc GetAll(CarRequest)  returns (StatusResponse);
-	rpc Update(CarRequest)  returns (StatusResponse);
-	rpc Delete(CarRequest)  returns (StatusResponse);
+	rpc Create(CarRequest) returns (SimpleResponse);
+	rpc GetById(CarRequest) returns (CarResponse);
+	rpc GetAll(CarRequest) returns (CarsResponse);
+	rpc UpdatePut(CarRequest) returns (SimpleResponse);
+	rpc UpdatePatch(CarRequest) returns (SimpleResponse);
+	rpc Delete(CarRequest) returns (SimpleResponse);
 }
 

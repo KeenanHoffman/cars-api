@@ -3,7 +3,7 @@ package routes
 import (
   "github.com/gin-gonic/gin"
   "github.com/keenanhoffman/cars-api/db"
-  "github.com/keenanhoffman/cars-api/structs"
+	"github.com/keenanhoffman/cars-api/stuff/structs"
   "log"
   "net/http"
 )

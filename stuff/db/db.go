@@ -1,7 +1,7 @@
 package db
 
 import (
-	"github.com/keenanhoffman/cars-api/structs"
+	"github.com/keenanhoffman/cars-api/stuff/structs"
 )
 
 type DB interface {
