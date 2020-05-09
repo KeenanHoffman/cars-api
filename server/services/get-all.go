@@ -3,8 +3,18 @@ package services
 import (
 	"github.com/keenanhoffman/cars-api/proto"
 	"context"
+	"net/http"
 )
 
 func (s *Server) GetAll(ctx context.Context, request *proto.CarRequest) (*proto.CarsResponse, error) {
-	return nil, nil
+	cars, err := s.DB.GetCars()
+	if err != nil {
+		return &proto.CarsResponse{
+			Status: http.StatusServiceUnavailable,
+		}, err
+	}
+	return &proto.CarsResponse{
+		Status: 200,
+		Cars: cars,
+	}, nil
 }

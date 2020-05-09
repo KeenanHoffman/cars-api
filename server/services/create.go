@@ -1,10 +1,24 @@
 package services
 
 import (
-	"github.com/keenanhoffman/cars-api/proto"
 	"context"
+	"github.com/keenanhoffman/cars-api/proto"
+	"net/http"
 )
 
 func (s *Server) Create(ctx context.Context, request *proto.CarRequest) (*proto.SimpleResponse, error) {
-	return nil, nil
+	err := s.DB.CreateCar(proto.Car{
+		Make: request.GetMake(),
+		Model: request.GetModel(),
+		Vin: request.GetVin(),
+	})
+	if err != nil {
+		return &proto.SimpleResponse{
+			Status: http.StatusServiceUnavailable,
+		}, err
+	}
+
+	return &proto.SimpleResponse{
+		Status: http.StatusCreated,
+	}, nil
 }

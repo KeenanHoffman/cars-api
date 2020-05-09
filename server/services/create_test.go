@@ -1,33 +1,55 @@
 package services_test
 
 import (
-	"bytes"
-	"github.com/gin-gonic/gin"
-	"github.com/keenanhoffman/cars-api/stuff/routes"
+	"errors"
+	"github.com/keenanhoffman/cars-api/proto"
+	. "github.com/keenanhoffman/cars-api/server/services"
+	"github.com/keenanhoffman/cars-api/server/test"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	"context"
 	"net/http"
-	"net/http/httptest"
 )
 
-type MockDB struct { Called      bool
-	ReturnError error
-}
 
 var _ = Describe("Create", func() {
-	Context("When given JSON", func() {
-		It("Creates a new car successfully", func() {
-			respRecorder := httptest.NewRecorder()
-			_, router := gin.CreateTestContext(respRecorder)
-			mockDB := MockDB{ReturnError: nil}
-			router.POST("/cars/:car_name", routes.CreateCar(&mockDB))
-			request, err := http.NewRequest("POST", "/cars/test_car", bytes.NewBufferString("{}"))
-			Expect(err).ToNot(HaveOccurred())
-			request.Header.Add("Accept", "application/json")
+	It("Creates a new car successfully", func() {
+		ctx := context.Background()
+		req := proto.CarRequest{
+			Make:  "test-make",
+			Model: "test-model",
+			Vin:   "test-vin",
+		}
+		mockDB := &test.MockDB{}
+		server := Server{
+			DB: mockDB,
+		}
+		response, err := server.Create(ctx, &req)
 
-			router.ServeHTTP(respRecorder, request)
-			Expect(respRecorder.Body.String()).To(Equal(""))
-			Expect(respRecorder.Code).To(Equal(http.StatusCreated))
-		})
+		Expect(err).ToNot(HaveOccurred())
+		Expect(response.GetStatus()).To(Equal(int32(http.StatusCreated)))
+
+		Expect(mockDB.CreateMethod.Called).To(BeTrue())
+		Expect(mockDB.CreateMethod.GivenCar.GetMake()).To(Equal("test-make"))
+		Expect(mockDB.CreateMethod.GivenCar.GetModel()).To(Equal("test-model"))
+		Expect(mockDB.CreateMethod.GivenCar.GetVin()).To(Equal("test-vin"))
+	})
+	It("Fails while storing the car", func() {
+		ctx := context.Background()
+		req := proto.CarRequest{}
+		dbError := errors.New("DB Error")
+		mockDB := &test.MockDB{
+			CreateMethod: test.CreateMethodStruct{
+				ReturnError: dbError,
+			},
+		}
+		server := Server{
+			DB: mockDB,
+		}
+		response, err := server.Create(ctx, &req)
+
+		Expect(mockDB.CreateMethod.Called).To(BeTrue())
+		Expect(err).To(Equal(dbError))
+		Expect(response.GetStatus()).To(Equal(int32(http.StatusServiceUnavailable)))
 	})
 })
