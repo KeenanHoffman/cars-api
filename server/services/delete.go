@@ -3,8 +3,17 @@ package services
 import (
 	"github.com/keenanhoffman/cars-api/proto"
 	"context"
+	"net/http"
 )
 
 func (s *Server) Delete(ctx context.Context, request *proto.CarRequest) (*proto.SimpleResponse, error) {
-	return nil, nil
+	err := s.DB.DeleteCar(request.GetId())
+	if err != nil {
+		return &proto.SimpleResponse{
+			Status: http.StatusServiceUnavailable,
+		}, err
+	}
+	return &proto.SimpleResponse{
+		Status: http.StatusOK,
+	}, nil
 }

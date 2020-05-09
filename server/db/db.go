@@ -9,6 +9,8 @@ type Database interface {
 	GetCarById(int64) (proto.Car, error)
 	GetCars() ([]*proto.Car, error)
 	UpdateCar(proto.Car) error
+	ReplaceCar(proto.Car) error
+	DeleteCar(int64) error
 }
 
 type Postgres struct {}
@@ -26,5 +28,13 @@ func (p *Postgres) GetCars() ([]*proto.Car, error) {
 }
 
 func (p *Postgres) UpdateCar(car proto.Car) error {
+	return nil
+}
+
+func (p *Postgres) ReplaceCar(car proto.Car) error {
+	return nil
+}
+
+func (p *Postgres) DeleteCar(id int64) error {
 	return nil
 }
