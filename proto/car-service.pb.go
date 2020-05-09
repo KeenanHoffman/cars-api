@@ -354,7 +354,7 @@ var file_car_service_proto_rawDesc = []byte{
 	0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x04,
 	0x63, 0x61, 0x72, 0x73, 0x22, 0x28, 0x0a, 0x0e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65,
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0xcb,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0xc4,
 	0x02, 0x0a, 0x0d, 0x41, 0x64, 0x64, 0x43, 0x61, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
 	0x12, 0x32, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f,
 	0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e,
@@ -365,18 +365,18 @@ var file_car_service_proto_rawDesc = []byte{
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x06, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c,
 	0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75,
 	0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x73,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x35, 0x0a, 0x09, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x50, 0x75, 0x74, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61,
-	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x37, 0x0a, 0x0b, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x74, 0x63, 0x68, 0x12, 0x11,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x06, 0x44, 0x65, 0x6c, 0x65,
-	0x74, 0x65, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x69,
-	0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x09, 0x5a, 0x07,
-	0x2e, 0x3b, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x07, 0x52, 0x65, 0x70, 0x6c,
+	0x61, 0x63, 0x65, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53,
+	0x69, 0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a,
+	0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
+	0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x32, 0x0a, 0x06, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x11, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x3b, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -405,14 +405,14 @@ var file_car_service_proto_depIdxs = []int32{
 	0, // 2: proto.AddCarService.Create:input_type -> proto.CarRequest
 	0, // 3: proto.AddCarService.GetById:input_type -> proto.CarRequest
 	0, // 4: proto.AddCarService.GetAll:input_type -> proto.CarRequest
-	0, // 5: proto.AddCarService.UpdatePut:input_type -> proto.CarRequest
-	0, // 6: proto.AddCarService.UpdatePatch:input_type -> proto.CarRequest
+	0, // 5: proto.AddCarService.Replace:input_type -> proto.CarRequest
+	0, // 6: proto.AddCarService.Update:input_type -> proto.CarRequest
 	0, // 7: proto.AddCarService.Delete:input_type -> proto.CarRequest
 	4, // 8: proto.AddCarService.Create:output_type -> proto.SimpleResponse
 	2, // 9: proto.AddCarService.GetById:output_type -> proto.CarResponse
 	3, // 10: proto.AddCarService.GetAll:output_type -> proto.CarsResponse
-	4, // 11: proto.AddCarService.UpdatePut:output_type -> proto.SimpleResponse
-	4, // 12: proto.AddCarService.UpdatePatch:output_type -> proto.SimpleResponse
+	4, // 11: proto.AddCarService.Replace:output_type -> proto.SimpleResponse
+	4, // 12: proto.AddCarService.Update:output_type -> proto.SimpleResponse
 	4, // 13: proto.AddCarService.Delete:output_type -> proto.SimpleResponse
 	8, // [8:14] is the sub-list for method output_type
 	2, // [2:8] is the sub-list for method input_type
@@ -523,8 +523,8 @@ type AddCarServiceClient interface {
 	Create(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
 	GetById(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*CarResponse, error)
 	GetAll(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*CarsResponse, error)
-	UpdatePut(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
-	UpdatePatch(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
+	Replace(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
+	Update(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
 	Delete(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
 }
 
@@ -563,18 +563,18 @@ func (c *addCarServiceClient) GetAll(ctx context.Context, in *CarRequest, opts .
 	return out, nil
 }
 
-func (c *addCarServiceClient) UpdatePut(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
+func (c *addCarServiceClient) Replace(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
 	out := new(SimpleResponse)
-	err := c.cc.Invoke(ctx, "/proto.AddCarService/UpdatePut", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.AddCarService/Replace", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *addCarServiceClient) UpdatePatch(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
+func (c *addCarServiceClient) Update(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
 	out := new(SimpleResponse)
-	err := c.cc.Invoke(ctx, "/proto.AddCarService/UpdatePatch", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.AddCarService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -595,8 +595,8 @@ type AddCarServiceServer interface {
 	Create(context.Context, *CarRequest) (*SimpleResponse, error)
 	GetById(context.Context, *CarRequest) (*CarResponse, error)
 	GetAll(context.Context, *CarRequest) (*CarsResponse, error)
-	UpdatePut(context.Context, *CarRequest) (*SimpleResponse, error)
-	UpdatePatch(context.Context, *CarRequest) (*SimpleResponse, error)
+	Replace(context.Context, *CarRequest) (*SimpleResponse, error)
+	Update(context.Context, *CarRequest) (*SimpleResponse, error)
 	Delete(context.Context, *CarRequest) (*SimpleResponse, error)
 }
 
@@ -613,11 +613,11 @@ func (*UnimplementedAddCarServiceServer) GetById(context.Context, *CarRequest) (
 func (*UnimplementedAddCarServiceServer) GetAll(context.Context, *CarRequest) (*CarsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
 }
-func (*UnimplementedAddCarServiceServer) UpdatePut(context.Context, *CarRequest) (*SimpleResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdatePut not implemented")
+func (*UnimplementedAddCarServiceServer) Replace(context.Context, *CarRequest) (*SimpleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Replace not implemented")
 }
-func (*UnimplementedAddCarServiceServer) UpdatePatch(context.Context, *CarRequest) (*SimpleResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdatePatch not implemented")
+func (*UnimplementedAddCarServiceServer) Update(context.Context, *CarRequest) (*SimpleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
 func (*UnimplementedAddCarServiceServer) Delete(context.Context, *CarRequest) (*SimpleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
@@ -681,38 +681,38 @@ func _AddCarService_GetAll_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AddCarService_UpdatePut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AddCarService_Replace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CarRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddCarServiceServer).UpdatePut(ctx, in)
+		return srv.(AddCarServiceServer).Replace(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.AddCarService/UpdatePut",
+		FullMethod: "/proto.AddCarService/Replace",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddCarServiceServer).UpdatePut(ctx, req.(*CarRequest))
+		return srv.(AddCarServiceServer).Replace(ctx, req.(*CarRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AddCarService_UpdatePatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AddCarService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CarRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddCarServiceServer).UpdatePatch(ctx, in)
+		return srv.(AddCarServiceServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.AddCarService/UpdatePatch",
+		FullMethod: "/proto.AddCarService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddCarServiceServer).UpdatePatch(ctx, req.(*CarRequest))
+		return srv.(AddCarServiceServer).Update(ctx, req.(*CarRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -752,12 +752,12 @@ var _AddCarService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _AddCarService_GetAll_Handler,
 		},
 		{
-			MethodName: "UpdatePut",
-			Handler:    _AddCarService_UpdatePut_Handler,
+			MethodName: "Replace",
+			Handler:    _AddCarService_Replace_Handler,
 		},
 		{
-			MethodName: "UpdatePatch",
-			Handler:    _AddCarService_UpdatePatch_Handler,
+			MethodName: "Update",
+			Handler:    _AddCarService_Update_Handler,
 		},
 		{
 			MethodName: "Delete",

@@ -35,8 +35,8 @@ service AddCarService {
 	rpc Create(CarRequest) returns (SimpleResponse);
 	rpc GetById(CarRequest) returns (CarResponse);
 	rpc GetAll(CarRequest) returns (CarsResponse);
-	rpc UpdatePut(CarRequest) returns (SimpleResponse);
-	rpc UpdatePatch(CarRequest) returns (SimpleResponse);
+	rpc Replace(CarRequest) returns (SimpleResponse);
+	rpc Update(CarRequest) returns (SimpleResponse);
 	rpc Delete(CarRequest) returns (SimpleResponse);
 }
 
