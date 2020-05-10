@@ -52,4 +52,21 @@ var _ = Describe("Create", func() {
 		Expect(err).To(Equal(dbError))
 		Expect(response.GetStatus()).To(Equal(int32(http.StatusServiceUnavailable)))
 	})
+	It("Fails when given an ID", func() {
+		ctx := context.Background()
+		req := proto.CarRequest{
+			Id: 12345,
+		}
+		mockDB := &test.MockDB{}
+		server := Services{
+			DB: mockDB,
+		}
+		response, err := server.Create(ctx, &req)
+
+		Expect(err).To(HaveOccurred())
+		Expect(err.Error()).To(Equal("ID provided for a new car"))
+		Expect(response.GetStatus()).To(Equal(int32(http.StatusBadRequest)))
+
+		Expect(mockDB.CreateMethod.Called).To(BeFalse())
+	})
 })

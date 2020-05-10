@@ -3,6 +3,7 @@ module github.com/keenanhoffman/cars-api
 go 1.14
 
 require (
+	github.com/gin-gonic/gin v1.6.3
 	github.com/go-pg/pg v8.0.6+incompatible
 	github.com/go-pg/pg/v9 v9.1.6 // indirect
 	github.com/golang/protobuf v1.4.0
