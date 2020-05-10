@@ -8,6 +8,8 @@ import (
 
 type MockClient struct {
 	CreateMethod CreateMethodStruct
+	GetByIdMethod GetByIdMethodStruct
+	GetAllMethod GetAllMethodStruct
 }
 
 type CreateMethodStruct struct {
@@ -24,12 +26,32 @@ func (m *MockClient) Create(ctx context.Context, req *proto.CarRequest, options 
 	return m.CreateMethod.ReturnSimpleResponse, m.CreateMethod.ReturnError
 }
 
+type GetByIdMethodStruct struct {
+	GivenCtx          context.Context
+	GivenReq          *proto.CarRequest
+	Called            bool
+	ReturnError       error
+	ReturnCarResponse *proto.CarResponse
+}
 func (m *MockClient) GetById(ctx context.Context, req *proto.CarRequest, options ...grcp.CallOption) (*proto.CarResponse, error) {
-	return nil, nil
+	m.GetByIdMethod.Called = true
+	m.GetByIdMethod.GivenCtx = ctx
+	m.GetByIdMethod.GivenReq = req
+	return m.GetByIdMethod.ReturnCarResponse, m.GetByIdMethod.ReturnError
 }
 
+type GetAllMethodStruct struct {
+	GivenCtx          context.Context
+	GivenReq          *proto.CarRequest
+	Called            bool
+	ReturnError       error
+	ReturnCarsResponse *proto.CarsResponse
+}
 func (m *MockClient) GetAll(ctx context.Context, req *proto.CarRequest, options ...grcp.CallOption) (*proto.CarsResponse, error) {
-	return nil, nil
+	m.GetAllMethod.Called = true
+	m.GetAllMethod.GivenCtx = ctx
+	m.GetAllMethod.GivenReq = req
+	return m.GetAllMethod.ReturnCarsResponse, m.GetAllMethod.ReturnError
 }
 
 func (m *MockClient) Replace(ctx context.Context, req *proto.CarRequest, options ...grcp.CallOption) (*proto.SimpleResponse, error) {

@@ -34,7 +34,7 @@ var _ = Describe("CreateCar", func() {
 			Expect(err).ToNot(HaveOccurred())
 			request, err := http.NewRequest("POST", "/cars", bytes.NewBufferString(string(jsonBody)))
 			Expect(err).ToNot(HaveOccurred())
-			request.Header.Add("Accept", "application/json")
+			request.Header.Add("Content-type", "application/json")
 
 			router.ServeHTTP(respRecorder, request)
 			Expect(respRecorder.Body.String()).To(Equal(""))
@@ -53,7 +53,7 @@ var _ = Describe("CreateCar", func() {
 			jsonBody := "}{"
 			request, err := http.NewRequest("POST", "/cars", bytes.NewBufferString(jsonBody))
 			Expect(err).ToNot(HaveOccurred())
-			request.Header.Add("Accept", "application/json")
+			request.Header.Add("Content-type", "application/json")
 
 			router.ServeHTTP(respRecorder, request)
 			expectedResponseMap := map[string]string{
@@ -82,7 +82,7 @@ var _ = Describe("CreateCar", func() {
 			Expect(err).ToNot(HaveOccurred())
 			request, err := http.NewRequest("POST", "/cars", bytes.NewBufferString(string(protobufBody)))
 			Expect(err).ToNot(HaveOccurred())
-			request.Header.Add("Accept", "application/protobuf")
+			request.Header.Add("Content-type", "application/protobuf")
 
 			router.ServeHTTP(respRecorder, request)
 			Expect(respRecorder.Body.String()).To(Equal(""))
@@ -101,7 +101,7 @@ var _ = Describe("CreateCar", func() {
 			protobufBody := "}{"
 			request, err := http.NewRequest("POST", "/cars", bytes.NewBufferString(string(protobufBody)))
 			Expect(err).ToNot(HaveOccurred())
-			request.Header.Add("Accept", "application/protobuf")
+			request.Header.Add("Content-type", "application/protobuf")
 
 			router.ServeHTTP(respRecorder, request)
 			expectedResponseStruct := &proto.SimpleError{
@@ -130,7 +130,7 @@ var _ = Describe("CreateCar", func() {
 			Expect(err).ToNot(HaveOccurred())
 			request, err := http.NewRequest("POST", "/cars", bytes.NewBufferString(string(xmlBody)))
 			Expect(err).ToNot(HaveOccurred())
-			request.Header.Add("Accept", "application/xml")
+			request.Header.Add("Content-type", "application/xml")
 
 			router.ServeHTTP(respRecorder, request)
 			Expect(respRecorder.Body.String()).To(Equal(""))
@@ -149,7 +149,7 @@ var _ = Describe("CreateCar", func() {
 			xmlBody := "}{"
 			request, err := http.NewRequest("POST", "/cars", bytes.NewBufferString(xmlBody))
 			Expect(err).ToNot(HaveOccurred())
-			request.Header.Add("Accept", "application/xml")
+			request.Header.Add("Content-type", "application/xml")
 
 			router.ServeHTTP(respRecorder, request)
 			expectedResponse := "<map><error>invalid xml: EOF</error></map>"
@@ -176,7 +176,7 @@ var _ = Describe("CreateCar", func() {
 		jsonBody := "{}"
 		request, err := http.NewRequest("POST", "/cars", bytes.NewBufferString(jsonBody))
 		Expect(err).ToNot(HaveOccurred())
-		request.Header.Add("Accept", "application/json")
+		request.Header.Add("Content-type", "application/json")
 
 		router.ServeHTTP(respRecorder, request)
 		expectedResponseMap := map[string]string{

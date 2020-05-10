@@ -12,7 +12,7 @@ import (
 func CreateCar(client proto.AddCarServiceClient) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		newCarRequest := &proto.CarRequest{}
-		accept := ctx.GetHeader("Accept")
+		accept := ctx.GetHeader("Content-type")
 		if accept == "application/json" {
 			err := ctx.BindJSON(newCarRequest)
 			if err != nil {
