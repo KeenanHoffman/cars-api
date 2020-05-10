@@ -12,7 +12,7 @@ import (
 	. "github.com/keenanhoffman/cars-api/server/services"
 )
 
-var _ = Describe("GetById", func() {
+var _ = Describe("GetCarById", func() {
 	It("Gets a car by ID successfully", func() {
 		ctx := context.Background()
 		id := int64(12345)
@@ -29,7 +29,7 @@ var _ = Describe("GetById", func() {
 				},
 			},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.GetById(ctx, &req)
@@ -55,7 +55,7 @@ var _ = Describe("GetById", func() {
 				ReturnError: dbError,
 			},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.GetById(ctx, &req)

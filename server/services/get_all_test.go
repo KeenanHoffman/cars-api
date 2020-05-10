@@ -28,7 +28,7 @@ var _ = Describe("GetAll", func() {
 				},
 			},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.GetAll(ctx, &req)
@@ -51,7 +51,7 @@ var _ = Describe("GetAll", func() {
 				ReturnError: dbError,
 			},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.GetAll(ctx, &req)

@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func (s *Server) Create(ctx context.Context, request *proto.CarRequest) (*proto.SimpleResponse, error) {
+func (s *Services) Create(ctx context.Context, request *proto.CarRequest) (*proto.SimpleResponse, error) {
 	err := s.DB.CreateCar(proto.Car{
 		Make: request.GetMake(),
 		Model: request.GetModel(),

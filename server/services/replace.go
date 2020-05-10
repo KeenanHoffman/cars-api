@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func (s *Server) Replace(ctx context.Context, request *proto.CarRequest) (*proto.SimpleResponse, error) {
+func (s *Services) Replace(ctx context.Context, request *proto.CarRequest) (*proto.SimpleResponse, error) {
 	err := s.DB.ReplaceCar(proto.Car{
 		Id:    request.GetId(),
 		Make:  request.GetMake(),

@@ -24,7 +24,7 @@ var _ = Describe("Update", func() {
 		mockDB := &test.MockDB{
 			UpdateCarMethod: test.UpdateCarMethodStruct{},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.Update(ctx, &req)
@@ -47,7 +47,7 @@ var _ = Describe("Update", func() {
 				ReturnError: dbError,
 			},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.Update(ctx, &req)

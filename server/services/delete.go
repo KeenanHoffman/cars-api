@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func (s *Server) Delete(ctx context.Context, request *proto.CarRequest) (*proto.SimpleResponse, error) {
+func (s *Services) Delete(ctx context.Context, request *proto.CarRequest) (*proto.SimpleResponse, error) {
 	err := s.DB.DeleteCar(request.GetId())
 	if err != nil {
 		return &proto.SimpleResponse{

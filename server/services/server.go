@@ -2,6 +2,6 @@ package services
 
 import "github.com/keenanhoffman/cars-api/server/db"
 
-type Server struct{
+type Services struct{
 	DB db.Database
 }

@@ -403,13 +403,13 @@ var file_car_service_proto_depIdxs = []int32{
 	1, // 0: proto.CarResponse.car:type_name -> proto.Car
 	1, // 1: proto.CarsResponse.cars:type_name -> proto.Car
 	0, // 2: proto.AddCarService.Create:input_type -> proto.CarRequest
-	0, // 3: proto.AddCarService.GetById:input_type -> proto.CarRequest
+	0, // 3: proto.AddCarService.GetCarById:input_type -> proto.CarRequest
 	0, // 4: proto.AddCarService.GetAll:input_type -> proto.CarRequest
 	0, // 5: proto.AddCarService.Replace:input_type -> proto.CarRequest
 	0, // 6: proto.AddCarService.Update:input_type -> proto.CarRequest
 	0, // 7: proto.AddCarService.Delete:input_type -> proto.CarRequest
 	4, // 8: proto.AddCarService.Create:output_type -> proto.SimpleResponse
-	2, // 9: proto.AddCarService.GetById:output_type -> proto.CarResponse
+	2, // 9: proto.AddCarService.GetCarById:output_type -> proto.CarResponse
 	3, // 10: proto.AddCarService.GetAll:output_type -> proto.CarsResponse
 	4, // 11: proto.AddCarService.Replace:output_type -> proto.SimpleResponse
 	4, // 12: proto.AddCarService.Update:output_type -> proto.SimpleResponse
@@ -547,7 +547,7 @@ func (c *addCarServiceClient) Create(ctx context.Context, in *CarRequest, opts .
 
 func (c *addCarServiceClient) GetById(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*CarResponse, error) {
 	out := new(CarResponse)
-	err := c.cc.Invoke(ctx, "/proto.AddCarService/GetById", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.AddCarService/GetCarById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -608,7 +608,7 @@ func (*UnimplementedAddCarServiceServer) Create(context.Context, *CarRequest) (*
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
 func (*UnimplementedAddCarServiceServer) GetById(context.Context, *CarRequest) (*CarResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetById not implemented")
+	return nil, status.Errorf(codes.Unimplemented, "method GetCarById not implemented")
 }
 func (*UnimplementedAddCarServiceServer) GetAll(context.Context, *CarRequest) (*CarsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
@@ -655,7 +655,7 @@ func _AddCarService_GetById_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.AddCarService/GetById",
+		FullMethod: "/proto.AddCarService/GetCarById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AddCarServiceServer).GetById(ctx, req.(*CarRequest))
@@ -744,7 +744,7 @@ var _AddCarService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _AddCarService_Create_Handler,
 		},
 		{
-			MethodName: "GetById",
+			MethodName: "GetCarById",
 			Handler:    _AddCarService_GetById_Handler,
 		},
 		{

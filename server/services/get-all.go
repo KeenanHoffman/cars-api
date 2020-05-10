@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func (s *Server) GetAll(ctx context.Context, request *proto.CarRequest) (*proto.CarsResponse, error) {
+func (s *Services) GetAll(ctx context.Context, request *proto.CarRequest) (*proto.CarsResponse, error) {
 	cars, err := s.DB.GetCars()
 	if err != nil {
 		return &proto.CarsResponse{

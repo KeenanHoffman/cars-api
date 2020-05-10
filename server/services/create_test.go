@@ -21,7 +21,7 @@ var _ = Describe("Create", func() {
 			Vin:   "test-vin",
 		}
 		mockDB := &test.MockDB{}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.Create(ctx, &req)
@@ -43,7 +43,7 @@ var _ = Describe("Create", func() {
 				ReturnError: dbError,
 			},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.Create(ctx, &req)

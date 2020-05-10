@@ -24,7 +24,7 @@ var _ = Describe("Replace", func() {
 		mockDB := &test.MockDB{
 			ReplaceCarMethod: test.ReplaceCarMethodStruct{},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.Replace(ctx, &req)
@@ -47,7 +47,7 @@ var _ = Describe("Replace", func() {
 				ReturnError: dbError,
 			},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.Replace(ctx, &req)

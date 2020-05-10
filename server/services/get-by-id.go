@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func (s *Server) GetById(ctx context.Context, request *proto.CarRequest) (*proto.CarResponse, error) {
+func (s *Services) GetById(ctx context.Context, request *proto.CarRequest) (*proto.CarResponse, error) {
 	car, err := s.DB.GetCarById(request.GetId())
 	if err != nil {
 		return &proto.CarResponse{

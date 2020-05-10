@@ -21,7 +21,7 @@ var _ = Describe("Delete", func() {
 		mockDB := &test.MockDB{
 			DeleteCarMethod: test.DeleteCarMethodStruct{},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.Delete(ctx, &req)
@@ -41,7 +41,7 @@ var _ = Describe("Delete", func() {
 				ReturnError: dbError,
 			},
 		}
-		server := Server{
+		server := Services{
 			DB: mockDB,
 		}
 		response, err := server.Delete(ctx, &req)
