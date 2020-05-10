@@ -40,3 +40,7 @@ service AddCarService {
 	rpc Delete(CarRequest) returns (SimpleResponse);
 }
 
+
+message SimpleError{
+	string error = 1;
+}
