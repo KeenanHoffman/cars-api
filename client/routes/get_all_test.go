@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"encoding/xml"
+	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	protobuf "github.com/golang/protobuf/proto"
 	"github.com/keenanhoffman/cars-api/client/test"
@@ -154,33 +156,33 @@ var _ = Describe("GetCars", func() {
 			Expect(mockClient.GetAllMethod.Called).To(BeTrue())
 		})
 	})
-	//It(`Returns the client status and error when client.GetById fails`, func() {
-	//	respRecorder := httptest.NewRecorder()
-	//	_, router := gin.CreateTestContext(respRecorder)
-	//	clientError := errors.New("Client Error")
-	//	mockClient := test.MockClient{
-	//		GetByIdMethod: test.GetByIdMethodStruct{
-	//			ReturnCarResponse: &proto.CarResponse{
-	//				Status: http.StatusServiceUnavailable,
-	//			},
-	//			ReturnError: clientError,
-	//		},
-	//	}
-	//	router.GET("/cars/:id", GetCarById(&mockClient))
-	//	jsonBody := "{}"
-	//	request, err := http.NewRequest("GET", "/cars/12345", bytes.NewBufferString(jsonBody))
-	//	Expect(err).ToNot(HaveOccurred())
-	//	request.Header.Add("Content-type", "application/json")
-	//
-	//	router.ServeHTTP(respRecorder, request)
-	//	expectedResponseMap := map[string]string{
-	//		"error": fmt.Sprintf(`grcp client: %s`, clientError.Error()),
-	//	}
-	//	expectedResponse, err := json.Marshal(expectedResponseMap)
-	//	Expect(err).ToNot(HaveOccurred())
-	//
-	//	Expect(mockClient.GetByIdMethod.Called).To(BeTrue())
-	//	Expect(respRecorder.Body.String()).To(Equal(string(expectedResponse)))
-	//	Expect(respRecorder.Code).To(Equal(http.StatusServiceUnavailable))
-	//})
+	It(`Returns the client status and error when client.GetById fails`, func() {
+		respRecorder := httptest.NewRecorder()
+		_, router := gin.CreateTestContext(respRecorder)
+		clientError := errors.New("Client Error")
+		mockClient := test.MockClient{
+			GetAllMethod: test.GetAllMethodStruct{
+				ReturnCarsResponse: &proto.CarsResponse{
+					Status: http.StatusServiceUnavailable,
+				},
+				ReturnError: clientError,
+			},
+		}
+		router.GET("/cars", GetCars(&mockClient))
+		jsonBody := "{}"
+		request, err := http.NewRequest("GET", "/cars", bytes.NewBufferString(jsonBody))
+		Expect(err).ToNot(HaveOccurred())
+		request.Header.Add("Content-type", "application/json")
+
+		router.ServeHTTP(respRecorder, request)
+		expectedResponseMap := map[string]string{
+			"error": fmt.Sprintf(`grcp client: %s`, clientError.Error()),
+		}
+		expectedResponse, err := json.Marshal(expectedResponseMap)
+		Expect(err).ToNot(HaveOccurred())
+
+		Expect(mockClient.GetAllMethod.Called).To(BeTrue())
+		Expect(respRecorder.Body.String()).To(Equal(string(expectedResponse)))
+		Expect(respRecorder.Code).To(Equal(http.StatusServiceUnavailable))
+	})
 })

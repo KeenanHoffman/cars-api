@@ -10,6 +10,9 @@ type MockClient struct {
 	CreateMethod CreateMethodStruct
 	GetByIdMethod GetByIdMethodStruct
 	GetAllMethod GetAllMethodStruct
+	UpdateMethod UpdateMethodStruct
+	ReplaceMethod ReplaceMethodStruct
+	DeleteMethod DeleteMethodStruct
 }
 
 type CreateMethodStruct struct {
@@ -54,14 +57,44 @@ func (m *MockClient) GetAll(ctx context.Context, req *proto.CarRequest, options 
 	return m.GetAllMethod.ReturnCarsResponse, m.GetAllMethod.ReturnError
 }
 
+type ReplaceMethodStruct struct {
+	GivenCtx             context.Context
+	GivenReq             *proto.CarRequest
+	Called               bool
+	ReturnError          error
+	ReturnSimpleResponse *proto.SimpleResponse
+}
 func (m *MockClient) Replace(ctx context.Context, req *proto.CarRequest, options ...grcp.CallOption) (*proto.SimpleResponse, error) {
-	return nil, nil
+	m.ReplaceMethod.Called = true
+	m.ReplaceMethod.GivenCtx = ctx
+	m.ReplaceMethod.GivenReq = req
+	return m.ReplaceMethod.ReturnSimpleResponse, m.ReplaceMethod.ReturnError
 }
 
+type UpdateMethodStruct struct {
+	GivenCtx             context.Context
+	GivenReq             *proto.CarRequest
+	Called               bool
+	ReturnError          error
+	ReturnSimpleResponse *proto.SimpleResponse
+}
 func (m *MockClient) Update(ctx context.Context, req *proto.CarRequest, options ...grcp.CallOption) (*proto.SimpleResponse, error) {
-	return nil, nil
+	m.UpdateMethod.Called = true
+	m.UpdateMethod.GivenCtx = ctx
+	m.UpdateMethod.GivenReq = req
+	return m.UpdateMethod.ReturnSimpleResponse, m.UpdateMethod.ReturnError
 }
 
+type DeleteMethodStruct struct {
+	GivenCtx             context.Context
+	GivenReq             *proto.CarRequest
+	Called               bool
+	ReturnError          error
+	ReturnSimpleResponse *proto.SimpleResponse
+}
 func (m *MockClient) Delete(ctx context.Context, req *proto.CarRequest, options ...grcp.CallOption) (*proto.SimpleResponse, error) {
-	return nil, nil
+	m.DeleteMethod.Called = true
+	m.DeleteMethod.GivenCtx = ctx
+	m.DeleteMethod.GivenReq = req
+	return m.DeleteMethod.ReturnSimpleResponse, m.DeleteMethod.ReturnError
 }
