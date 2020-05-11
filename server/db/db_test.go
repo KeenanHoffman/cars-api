@@ -13,8 +13,8 @@ var _ = Describe("Db", func() {
 	var db *pg.DB
 	BeforeEach(func() {
 		db = pg.Connect(&pg.Options{
-			User: "keenan",
-			Database: "cars_test",
+			User: "khofh",
+			Database: "cars_unit_test",
 		})
 
 		err := createSchema(db)

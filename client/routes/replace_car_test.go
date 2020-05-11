@@ -150,16 +150,13 @@ var _ = Describe("ReplaceCar", func() {
 			Expect(respRecorder.Code).To(Equal(http.StatusBadRequest))
 		})
 	})
-	It(`Returns the client status and error when client.Replace fails`, func() {
+	It(`Returns "Service Unavailable" when client.Replace fails`, func() {
 		respRecorder := httptest.NewRecorder()
 		_, router := gin.CreateTestContext(respRecorder)
 		clientError := errors.New("Client Error")
 		mockClient := test.MockClient{
 			ReplaceMethod: test.ReplaceMethodStruct{
 				ReturnError: clientError,
-				ReturnSimpleResponse: &proto.SimpleResponse{
-					Status: http.StatusServiceUnavailable,
-				},
 			},
 		}
 		router.PUT("/cars/:id", ReplaceCar(&mockClient))

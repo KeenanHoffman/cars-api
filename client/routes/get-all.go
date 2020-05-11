@@ -14,7 +14,7 @@ func GetCars(client proto.AddCarServiceClient) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		clientResponse, err := client.GetAll(ctx, &proto.CarRequest{})
 		if err != nil {
-			ctx.JSON(int(clientResponse.Status), gin.H{
+			ctx.JSON(http.StatusServiceUnavailable, gin.H{
 				"error": fmt.Sprintf(`grcp client: %s`, err.Error()),
 			})
 			ctx.Abort()

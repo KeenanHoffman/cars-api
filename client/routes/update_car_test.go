@@ -150,7 +150,7 @@ var _ = Describe("UpdateCar", func() {
 			Expect(respRecorder.Code).To(Equal(http.StatusBadRequest))
 		})
 	})
-	It(`Returns the client status and error when client.Delete fails`, func() {
+	It(`Returns "Service Unavailable" when client.Delete fails`, func() {
 		respRecorder := httptest.NewRecorder()
 		_, router := gin.CreateTestContext(respRecorder)
 		clientError := errors.New("Client Error")

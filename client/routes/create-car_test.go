@@ -160,16 +160,13 @@ var _ = Describe("CreateCar", func() {
 			Expect(respRecorder.Code).To(Equal(http.StatusBadRequest))
 		})
 	})
-	It(`Returns the client status and error when client.Create fails`, func() {
+	It(`Returns "Service Unavailabe" when client.Create fails`, func() {
 		respRecorder := httptest.NewRecorder()
 		_, router := gin.CreateTestContext(respRecorder)
 		clientError := errors.New("Client Error")
 		mockClient := test.MockClient{
 			CreateMethod: test.CreateMethodStruct{
 				ReturnError: clientError,
-				ReturnSimpleResponse: &proto.SimpleResponse{
-					Status: http.StatusServiceUnavailable,
-				},
 			},
 		}
 		router.POST("/cars", CreateCar(&mockClient))

@@ -136,7 +136,7 @@ var _ = Describe("GetByIdCar", func() {
 			Expect(mockClient.GetByIdMethod.GivenReq.GetId()).To(Equal(int64(12345)))
 		})
 	})
-	It(`Returns the client status and error when client.GetById fails`, func() {
+	It(`Returns "Service Unavailable" when client.GetById fails`, func() {
 		respRecorder := httptest.NewRecorder()
 		_, router := gin.CreateTestContext(respRecorder)
 		clientError := errors.New("Client Error")

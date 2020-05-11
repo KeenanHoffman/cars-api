@@ -156,15 +156,12 @@ var _ = Describe("GetCars", func() {
 			Expect(mockClient.GetAllMethod.Called).To(BeTrue())
 		})
 	})
-	It(`Returns the client status and error when client.GetById fails`, func() {
+	It(`Returns "Service Unavailable" when client.GetById fails`, func() {
 		respRecorder := httptest.NewRecorder()
 		_, router := gin.CreateTestContext(respRecorder)
 		clientError := errors.New("Client Error")
 		mockClient := test.MockClient{
 			GetAllMethod: test.GetAllMethodStruct{
-				ReturnCarsResponse: &proto.CarsResponse{
-					Status: http.StatusServiceUnavailable,
-				},
 				ReturnError: clientError,
 			},
 		}

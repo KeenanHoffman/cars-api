@@ -15,9 +15,9 @@ func DeleteCar(client proto.AddCarServiceClient) gin.HandlerFunc {
 		deleteCarRequest := &proto.CarRequest{
 			Id: idNum,
 		}
-		clientResponse, err := client.Delete(ctx, deleteCarRequest)
+		_, err := client.Delete(ctx, deleteCarRequest)
 		if err != nil {
-			ctx.JSON(int(clientResponse.Status), gin.H{
+			ctx.JSON(http.StatusServiceUnavailable, gin.H{
 				"error": fmt.Sprintf(`grcp client: %s`, err.Error()),
 			})
 			ctx.Abort()

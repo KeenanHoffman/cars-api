@@ -73,9 +73,9 @@ func ReplaceCar(client proto.AddCarServiceClient) gin.HandlerFunc {
 		id, _ := ctx.Params.Get("id")
 		idNum, _ := strconv.ParseInt(id, 10, 32)
 		updateCarRequest.Id = idNum
-		clientResponse, err := client.Replace(ctx, updateCarRequest)
+		_, err := client.Replace(ctx, updateCarRequest)
 		if err != nil {
-			ctx.JSON(int(clientResponse.Status), gin.H{
+			ctx.JSON(http.StatusServiceUnavailable, gin.H{
 				"error": fmt.Sprintf(`grcp client: %s`, err.Error()),
 			})
 			ctx.Abort()

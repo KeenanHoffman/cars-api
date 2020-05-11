@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/keenanhoffman/cars-api/client/test"
-	"github.com/keenanhoffman/cars-api/proto"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"net/http"
@@ -32,16 +31,13 @@ var _ = Describe("DeleteCar", func() {
 		Expect(mockClient.DeleteMethod.Called).To(BeTrue())
 		Expect(mockClient.DeleteMethod.GivenReq.GetId()).To(Equal(int64(12345)))
 	})
-	It(`Returns the client status and error when client.Delete fails`, func() {
+	It(`Returns "Service Unavailable" when client.Delete fails`, func() {
 		respRecorder := httptest.NewRecorder()
 		_, router := gin.CreateTestContext(respRecorder)
 		clientError := errors.New("Client Error")
 		mockClient := test.MockClient{
 			DeleteMethod: test.DeleteMethodStruct{
 				ReturnError: clientError,
-				ReturnSimpleResponse: &proto.SimpleResponse{
-					Status: http.StatusServiceUnavailable,
-				},
 			},
 		}
 		router.DELETE("/cars/:id", DeleteCar(&mockClient))

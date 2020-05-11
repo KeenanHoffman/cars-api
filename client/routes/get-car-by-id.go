@@ -20,7 +20,6 @@ func GetCarById(client proto.AddCarServiceClient) gin.HandlerFunc {
 		}
 		clientResponse, err := client.GetById(ctx, newCarRequest)
 		if err != nil {
-			//ctx.JSON(int(clientResponse.Status), gin.H{
 			ctx.JSON(http.StatusServiceUnavailable, gin.H{
 				"error": fmt.Sprintf(`grcp client: %s`, err.Error()),
 			})
