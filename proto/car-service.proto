@@ -38,6 +38,7 @@ service AddCarService {
 	rpc Replace(CarRequest) returns (SimpleResponse);
 	rpc Update(CarRequest) returns (SimpleResponse);
 	rpc Delete(CarRequest) returns (SimpleResponse);
+	rpc Search(CarRequest) returns (stream Car);
 }
 
 

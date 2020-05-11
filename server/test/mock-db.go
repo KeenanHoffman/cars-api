@@ -11,6 +11,7 @@ type MockDB struct {
 	UpdateCarMethod  UpdateCarMethodStruct
 	ReplaceCarMethod  ReplaceCarMethodStruct
 	DeleteCarMethod  DeleteCarMethodStruct
+	SearchCarMethod  SearchCarMethodStruct
 }
 
 type CreateMethodStruct struct {
@@ -77,4 +78,16 @@ func(m *MockDB) DeleteCar(id int64) error {
 	m.DeleteCarMethod.Called = true
 	m.DeleteCarMethod.GivenId = id
 	return m.DeleteCarMethod.ReturnError
+}
+
+type SearchCarMethodStruct struct {
+	Called      bool
+	GivenCar    proto.Car
+	ReturnCars  []*proto.Car
+	ReturnError error
+}
+func(m *MockDB) SearchCars(car proto.Car) ([]*proto.Car, error) {
+	m.SearchCarMethod.Called = true
+	m.SearchCarMethod.GivenCar = car
+	return m.SearchCarMethod.ReturnCars, m.SearchCarMethod.ReturnError
 }

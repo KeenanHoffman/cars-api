@@ -12,6 +12,7 @@ type Database interface {
 	UpdateCar(proto.Car) error
 	ReplaceCar(proto.Car) error
 	DeleteCar(int64) error
+	SearchCars(car proto.Car) ([]*proto.Car, error)
 }
 
 type Postgres struct {
@@ -94,4 +95,8 @@ func (p *Postgres) DeleteCar(id int64) error {
 		return err
 	}
 	return nil
+}
+
+func (p *Postgres) SearchCars(car proto.Car) ([]*proto.Car, error) {
+	return []*proto.Car{}, nil
 }

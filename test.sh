@@ -18,8 +18,17 @@ EOF
   psql postgres <<EOF
 DROP DATABASE $SERVER_DB_NAME;
 EOF
+  psql postgres <<EOF
+DROP DATABASE cars_unit_test;
+EOF
 }
 trap "cleanup" QUIT TERM EXIT INT
+
+psql postgres <<EOF
+CREATE DATABASE cars_unit_test;
+EOF
+
+ginkgo -r --cover
 
 psql postgres <<EOF
 CREATE DATABASE $SERVER_DB_NAME;

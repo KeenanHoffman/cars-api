@@ -404,7 +404,7 @@ var file_car_service_proto_rawDesc = []byte{
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x23,
 	0x0a, 0x0b, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x14, 0x0a,
 	0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x72,
-	0x72, 0x6f, 0x72, 0x32, 0xc4, 0x02, 0x0a, 0x0d, 0x41, 0x64, 0x64, 0x43, 0x61, 0x72, 0x53, 0x65,
+	0x72, 0x6f, 0x72, 0x32, 0xef, 0x02, 0x0a, 0x0d, 0x41, 0x64, 0x64, 0x43, 0x61, 0x72, 0x53, 0x65,
 	0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x32, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12,
 	0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65,
 	0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c,
@@ -424,8 +424,11 @@ var file_car_service_proto_rawDesc = []byte{
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x06, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65,
 	0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72, 0x52, 0x65, 0x71, 0x75,
 	0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x69, 0x6d, 0x70,
-	0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x3b,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x29, 0x0a, 0x06, 0x53, 0x65,
+	0x61, 0x72, 0x63, 0x68, 0x12, 0x11, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x72,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0a, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
+	0x43, 0x61, 0x72, 0x30, 0x01, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x3b, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -458,14 +461,16 @@ var file_car_service_proto_depIdxs = []int32{
 	0, // 5: proto.AddCarService.Replace:input_type -> proto.CarRequest
 	0, // 6: proto.AddCarService.Update:input_type -> proto.CarRequest
 	0, // 7: proto.AddCarService.Delete:input_type -> proto.CarRequest
-	4, // 8: proto.AddCarService.Create:output_type -> proto.SimpleResponse
-	2, // 9: proto.AddCarService.GetById:output_type -> proto.CarResponse
-	3, // 10: proto.AddCarService.GetAll:output_type -> proto.CarsResponse
-	4, // 11: proto.AddCarService.Replace:output_type -> proto.SimpleResponse
-	4, // 12: proto.AddCarService.Update:output_type -> proto.SimpleResponse
-	4, // 13: proto.AddCarService.Delete:output_type -> proto.SimpleResponse
-	8, // [8:14] is the sub-list for method output_type
-	2, // [2:8] is the sub-list for method input_type
+	0, // 8: proto.AddCarService.Search:input_type -> proto.CarRequest
+	4, // 9: proto.AddCarService.Create:output_type -> proto.SimpleResponse
+	2, // 10: proto.AddCarService.GetById:output_type -> proto.CarResponse
+	3, // 11: proto.AddCarService.GetAll:output_type -> proto.CarsResponse
+	4, // 12: proto.AddCarService.Replace:output_type -> proto.SimpleResponse
+	4, // 13: proto.AddCarService.Update:output_type -> proto.SimpleResponse
+	4, // 14: proto.AddCarService.Delete:output_type -> proto.SimpleResponse
+	1, // 15: proto.AddCarService.Search:output_type -> proto.Car
+	9, // [9:16] is the sub-list for method output_type
+	2, // [2:9] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
 	2, // [2:2] is the sub-list for extension extendee
 	0, // [0:2] is the sub-list for field type_name
@@ -588,6 +593,7 @@ type AddCarServiceClient interface {
 	Replace(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
 	Update(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
 	Delete(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
+	Search(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (AddCarService_SearchClient, error)
 }
 
 type addCarServiceClient struct {
@@ -652,6 +658,38 @@ func (c *addCarServiceClient) Delete(ctx context.Context, in *CarRequest, opts .
 	return out, nil
 }
 
+func (c *addCarServiceClient) Search(ctx context.Context, in *CarRequest, opts ...grpc.CallOption) (AddCarService_SearchClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_AddCarService_serviceDesc.Streams[0], "/proto.AddCarService/Search", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &addCarServiceSearchClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type AddCarService_SearchClient interface {
+	Recv() (*Car, error)
+	grpc.ClientStream
+}
+
+type addCarServiceSearchClient struct {
+	grpc.ClientStream
+}
+
+func (x *addCarServiceSearchClient) Recv() (*Car, error) {
+	m := new(Car)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // AddCarServiceServer is the server API for AddCarService service.
 type AddCarServiceServer interface {
 	Create(context.Context, *CarRequest) (*SimpleResponse, error)
@@ -660,6 +698,7 @@ type AddCarServiceServer interface {
 	Replace(context.Context, *CarRequest) (*SimpleResponse, error)
 	Update(context.Context, *CarRequest) (*SimpleResponse, error)
 	Delete(context.Context, *CarRequest) (*SimpleResponse, error)
+	Search(*CarRequest, AddCarService_SearchServer) error
 }
 
 // UnimplementedAddCarServiceServer can be embedded to have forward compatible implementations.
@@ -683,6 +722,9 @@ func (*UnimplementedAddCarServiceServer) Update(context.Context, *CarRequest) (*
 }
 func (*UnimplementedAddCarServiceServer) Delete(context.Context, *CarRequest) (*SimpleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (*UnimplementedAddCarServiceServer) Search(*CarRequest, AddCarService_SearchServer) error {
+	return status.Errorf(codes.Unimplemented, "method Search not implemented")
 }
 
 func RegisterAddCarServiceServer(s *grpc.Server, srv AddCarServiceServer) {
@@ -797,6 +839,27 @@ func _AddCarService_Delete_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AddCarService_Search_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(CarRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(AddCarServiceServer).Search(m, &addCarServiceSearchServer{stream})
+}
+
+type AddCarService_SearchServer interface {
+	Send(*Car) error
+	grpc.ServerStream
+}
+
+type addCarServiceSearchServer struct {
+	grpc.ServerStream
+}
+
+func (x *addCarServiceSearchServer) Send(m *Car) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _AddCarService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.AddCarService",
 	HandlerType: (*AddCarServiceServer)(nil),
@@ -826,6 +889,12 @@ var _AddCarService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _AddCarService_Delete_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "Search",
+			Handler:       _AddCarService_Search_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "car-service.proto",
 }
