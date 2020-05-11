@@ -12,11 +12,6 @@ import (
 
 func GetCars(client proto.AddCarServiceClient) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		//id, _ := ctx.Params.Get("id")
-		//idNum, _ := strconv.ParseInt(id, 10, 32)
-		//newCarRequest := &proto.CarRequest{
-		//	Id: idNum,
-		//}
 		clientResponse, err := client.GetAll(ctx, &proto.CarRequest{})
 		if err != nil {
 			ctx.JSON(int(clientResponse.Status), gin.H{

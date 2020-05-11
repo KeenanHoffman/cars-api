@@ -14,11 +14,12 @@ import (
 
 func main() {
 	database := pg.Connect(&pg.Options{
-		User: "keenan",
-		Database: "cars_test",
+		User: "khofh",
+		Database: os.Getenv("SERVER_DB_NAME"),
+		Addr: fmt.Sprintf("%s:%s", os.Getenv("SERVER_DB_URL"), os.Getenv("SERVER_DB_PORT")),
 	})
 
-	listener, err := net.Listen("tcp", fmt.Sprintf("%s:%s", os.Getenv("SERVER_DB_URL"), os.Getenv("sERVER_DB_PORT")))
+	listener, err := net.Listen("tcp", fmt.Sprintf(":%s", os.Getenv("SERVER_PORT")))
 	if err != nil {
 		panic(err)
 	}

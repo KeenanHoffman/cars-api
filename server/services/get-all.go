@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/keenanhoffman/cars-api/proto"
 	"context"
+	"github.com/keenanhoffman/cars-api/proto"
 	"net/http"
 )
 

@@ -11,15 +11,14 @@ func NewRouter(client proto.AddCarServiceClient) *gin.Engine {
 	//Create
 	apiRouter.POST("/cars", routes.CreateCar(client))
 	////Read One
-	//apiRouter.GET("/cars/:car_id", )
+	apiRouter.GET("/cars/:id", routes.GetCarById(client))
 	////Read All
-	//apiRouter.GET("/cars", )
+	apiRouter.GET("/cars", routes.GetCars(client))
 	////Update
-	//apiRouter.PATCH("/cars/:car_id", )
+	apiRouter.PATCH("/cars/:id", routes.UpdateCar(client))
 	////Replace
-	//apiRouter.PUT("/cars/:car_id", )
+	apiRouter.PUT("/cars/:id", routes.ReplaceCar(client))
 	////Delete
-	//apiRouter.DELETE("/cars/:car_id", )
-
+	apiRouter.DELETE("/cars/:id", routes.DeleteCar(client))
 	return apiRouter
 }

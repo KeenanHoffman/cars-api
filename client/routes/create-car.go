@@ -70,6 +70,7 @@ func CreateCar(client proto.AddCarServiceClient) gin.HandlerFunc {
 		}
 		clientResponse, err := client.Create(ctx, newCarRequest)
 		if err != nil {
+			fmt.Println(err)
 			ctx.JSON(int(clientResponse.Status), gin.H{
 				"error": fmt.Sprintf(`grcp client: %s`, err.Error()),
 			})

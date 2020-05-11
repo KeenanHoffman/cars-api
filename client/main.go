@@ -10,8 +10,8 @@ import (
 
 func main() {
 	conn, err := grcp.Dial(fmt.Sprintf("%s:%s",
-		os.Getenv("SERVER_DB_URL"),
-		os.Getenv("SERVER_DB_PORT")),
+		os.Getenv("SERVER_URL"),
+		os.Getenv("SERVER_PORT")),
 		grcp.WithInsecure())
 	if err != nil {
 		panic(err)
@@ -19,7 +19,7 @@ func main() {
 	client := proto.NewAddCarServiceClient(conn)
 	apiRouter := router.NewRouter(client)
 
-	err = apiRouter.Run(":8080")
+	err = apiRouter.Run(fmt.Sprintf(":%s", os.Getenv("CLIENT_PORT")))
 	if err != nil {
 		panic(err)
 	}
