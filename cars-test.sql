@@ -4,4 +4,4 @@ CREATE TABLE cars (
 	model text,
 	vin text
 );
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO khofh;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO postgres;

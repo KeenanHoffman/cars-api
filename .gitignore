@@ -1,3 +1,5 @@
 third_party/
 .idea/
 *.coverprofile
+server/server
+client/client

@@ -14,7 +14,8 @@ import (
 
 func main() {
 	database := pg.Connect(&pg.Options{
-		User: "khofh",
+		User: os.Getenv("SERVER_DB_USER"),
+		Password: os.Getenv("SERVER_DB_PASS"),
 		Database: os.Getenv("SERVER_DB_NAME"),
 		Addr: fmt.Sprintf("%s:%s", os.Getenv("SERVER_DB_URL"), os.Getenv("SERVER_DB_PORT")),
 	})

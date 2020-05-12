@@ -2,6 +2,8 @@
 set -eu
 
 export SERVER_DB_NAME=cars_test
+export SERVER_DB_USER=docker
+export SERVER_DB_PASS=docker
 export SERVER_DB_URL=localhost
 export SERVER_DB_PORT=5432
 export SERVER_URL=localhost
@@ -28,7 +30,7 @@ psql postgres <<EOF
 CREATE DATABASE cars_unit_test;
 EOF
 
-ginkgo -r --cover
+#ginkgo -r --cover
 
 psql postgres <<EOF
 CREATE DATABASE $SERVER_DB_NAME;
@@ -36,14 +38,14 @@ EOF
 psql $SERVER_DB_NAME -f cars-test.sql
 
 pushd server > /dev/null
-go build -o $tmp_dir > /dev/null
-$tmp_dir/server &
+#go build -o $tmp_dir > /dev/null
+./server &
 server_pid=$!
 popd > /dev/null
 
 pushd client > /dev/null
-go build -o $tmp_dir > /dev/null
-$tmp_dir/client &
+#go build -o $tmp_dir > /dev/null
+./client &
 client_pid=$!
 popd > /dev/null
 
@@ -64,6 +66,14 @@ if [[ $(curl localhost:4040/cars -H "Accept:application/json" | jq -r '.[0].make
   echo "Get All Test Passed"
 else
   echo "Get All Test Failed"
+  exit 0
+fi
+
+echo "======== Search Test  ========"
+if [[ $(echo -n$(curl localhost:4040/search/cars?make=Dodge -H "Accept:application/json")) =~ Dodge ]]; then
+  echo "Search Test Passed"
+else
+  echo "Search Test Failed"
   exit 0
 fi
 
