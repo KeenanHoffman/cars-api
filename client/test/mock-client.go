@@ -13,6 +13,7 @@ type MockClient struct {
 	UpdateMethod UpdateMethodStruct
 	ReplaceMethod ReplaceMethodStruct
 	DeleteMethod DeleteMethodStruct
+	SearchMethod SearchMethodStruct
 }
 
 type CreateMethodStruct struct {
@@ -97,4 +98,19 @@ func (m *MockClient) Delete(ctx context.Context, req *proto.CarRequest, options 
 	m.DeleteMethod.GivenCtx = ctx
 	m.DeleteMethod.GivenReq = req
 	return m.DeleteMethod.ReturnSimpleResponse, m.DeleteMethod.ReturnError
+}
+
+type SearchMethodStruct struct {
+	//GivenCtx             context.Context
+	//GivenReq             *proto.CarRequest
+	//Called               bool
+	//ReturnError          error
+	//ReturnSimpleResponse *proto.SimpleResponse
+}
+func (m *MockClient) Search(ctx context.Context, req *proto.CarRequest, options ...grcp.CallOption) (proto.AddCarService_SearchClient, error) {
+	//m.SearchMethod.Called = true
+	//m.SearchMethod.GivenCtx = ctx
+	//m.SearchMethod.GivenReq = req
+	//return m.SearchMethod.ReturnSimpleResponse, m.SearchMethod.ReturnError
+	return nil, nil
 }

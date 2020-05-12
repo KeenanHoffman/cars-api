@@ -2,6 +2,7 @@ package db
 
 import (
 	"github.com/go-pg/pg"
+	"github.com/go-pg/pg/orm"
 	"github.com/keenanhoffman/cars-api/proto"
 )
 
@@ -98,5 +99,21 @@ func (p *Postgres) DeleteCar(id int64) error {
 }
 
 func (p *Postgres) SearchCars(car proto.Car) ([]*proto.Car, error) {
-	return []*proto.Car{}, nil
+	cars := []*proto.Car{}
+	err := p.DB.Model(&cars).WhereGroup(func(q *orm.Query) (*orm.Query, error) {
+		if car.GetMake() != "" {
+			q = q.Where("car.make = ?", car.GetMake())
+		}
+		if car.GetModel() != "" {
+			q = q.Where("car.model = ?", car.GetModel())
+		}
+		if car.GetVin() != "" {
+			q = q.Where("car.vin= ?", car.GetVin())
+		}
+		return q, nil
+	}).Select()
+	if err != nil {
+		return cars, err
+	}
+	return cars, nil
 }
